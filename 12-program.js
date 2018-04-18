@@ -10,8 +10,8 @@ const port = process.argv[2] || 2400;
 
 const server = http.createServer((req, res) => {
   if (req.method === 'POST') {
-    var map = require('through2-map')
-    req.pipe(map(function (chunk) {
+    const map = require('through2-map')
+    req.pipe(map((chunk) => {
       return chunk.toString().toUpperCase();
     })).pipe(res);
   }

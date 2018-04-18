@@ -15,13 +15,13 @@
 
 const port = process.argv[2] || 2400;
 
-var net = require('net')
+const net = require('net')
 
 function zeroFill(number) {
   return (number < 10) ? '0'+number : number;
 }
 
-var server = net.createServer(function (socket) {
+const server = net.createServer(function (socket) {
   // socket handling logic
   const date = new Date();
   socket.end(`${date.getFullYear()}-${zeroFill(date.getMonth()+1)}-${zeroFill(date.getDate())} ${zeroFill(date.getHours())}:${zeroFill(date.getMinutes())}\n`);
